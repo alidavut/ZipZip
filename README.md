@@ -20,6 +20,9 @@ const zip = new ZipZip(__dirname + '/archive.zip');
 // add a directory completely
 zip.addDirectory(__dirname + '/assets');
 
+// add a directory with different target
+zip.addDirectory(__dirname + '/assets', '/project/assets');
+
 // add a custom file
 zip.addFile(__dirname + '/index.html');
 

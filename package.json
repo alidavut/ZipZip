@@ -1,6 +1,6 @@
 {
   "name": "zipzip",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easy zip builder",
   "main": "index.js",
   "dependencies": {

@@ -16,8 +16,9 @@ class ZipZip {
     this.archive.file(filePath, { name: target });
   }
 
-  addDirectory(dirPath) {
-    this.archive.directory(dirPath, '');
+  addDirectory(dirPath, target) {
+    if (!target) target = '';
+    this.archive.directory(dirPath, target);
   }
 
   build() {

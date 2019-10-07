@@ -31,4 +31,7 @@ zip.addFile(__dirname + '/app.js', '/assets/app.js');
 
 // build the zip file
 zip.build().then(() => console.log('Zip file has been created'));
+
+// extract files
+zip.extract('./target-dir').then(() => console.log('Files were extracted'));
 ```

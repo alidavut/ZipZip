@@ -3,11 +3,12 @@
 const archiver = require('archiver');
 const fs = require('fs');
 const path = require('path');
+const AdmZip = require('adm-zip');
 
 class ZipZip {
   constructor(zipPath) {
     this.path = zipPath;
-    this.archive = archiver('zip')
+    this.archive = archiver('zip');
     this.paths = [];
   }
 
@@ -30,6 +31,19 @@ class ZipZip {
       this.archive.finalize();
     });
   }
+
+  extract(dir, options = {}) {
+    var zip = new AdmZip(this.path);
+
+    return new Promise((resolve, reject) => {
+      zip.extractAllToAsync(dir, options.overwrite, err => {
+        if(err) return reject(err);
+        resolve();
+      });
+    });
+  }
 }
+
+
 
 module.exports = ZipZip;
